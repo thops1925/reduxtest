@@ -17,13 +17,12 @@ export const postAPI = createAsyncThunk('post/postAPI', async (payload) => {
   return response?.data;
 });
 
-export const deleteAPI = createAsyncThunk(
-  'delete/deleteAPI',
-  async (payload) => {
-    const response = await axios.delete(`http://localhost:4000/${payload.id}`);
-    return response?.data;
-  },
-);
+export const deleteAPI = createAsyncThunk('post/deleteAPI', async (payload) => {
+  const response = await axios.delete(
+    `http://localhost:4000/posts/${payload.id}`,
+  );
+  return response?.data;
+});
 
 const post = createSlice({
   name: 'post',

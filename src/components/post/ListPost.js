@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAPI } from '../../redux/slice';
+import { deleteAPI, getAPI } from '../../redux/slice';
 import Item from './itemPost/Item';
 
 function ListPost() {
@@ -11,6 +11,11 @@ function ListPost() {
   useEffect(() => {
     dispatch(getAPI());
   }, [dispatch]);
+
+  const removed = (id) => {
+    dispatch(deleteAPI({ id }));
+  };
+
   return (
     <div className="w-1/3 space-y-2">
       {post.map((item) => (
@@ -21,6 +26,7 @@ function ListPost() {
           id={item._id}
           creator={item.creator}
           image={item.selectedFile}
+          remove={removed}
         />
       ))}
     </div>
