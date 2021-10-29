@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Item({ creator, tags, message, title, id, image, remove }) {
-  const onDelete = () => {
-    remove(id);
-  };
+function Item({ creator, tags, message, title, id, image }) {
+  // const onDelete = () => {
+  //   remove(id);
+  // };
 
   return (
     <div key={id} className="relative">
@@ -18,9 +18,7 @@ function Item({ creator, tags, message, title, id, image, remove }) {
       </div>
       <img src={image} alt="" className="object-fit" />
       <div className="z-20">
-        <button className="" onClick={onDelete}>
-          Delete
-        </button>
+        <button className="">Delete</button>
       </div>
     </div>
   );

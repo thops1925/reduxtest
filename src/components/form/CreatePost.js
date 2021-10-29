@@ -5,6 +5,7 @@ import FileBase64 from 'react-file-base64';
 
 function CreatePost() {
   const dispatch = useDispatch();
+  const [updatePost, { isLoading }] = useEditPostMutation();
 
   const [value, setValue] = useState({
     title: '',
